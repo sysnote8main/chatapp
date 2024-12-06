@@ -1,11 +1,12 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 
 	"github.com/urfave/cli/v2"
+
+	"chatapp/server"
 )
 
 func main() {
@@ -23,7 +24,8 @@ func main() {
 					},
 				},
 				Action: func(ctx *cli.Context) error {
-					fmt.Println("Server Hogehoge")
+					port := ctx.Int("port")
+					server.Run(port)
 					return nil
 				},
 			},
